@@ -506,6 +506,8 @@ public class Server {
         this.watchdog.start();
 
         this.start();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(this::forceShutdown));
     }
 
     public int broadcastMessage(String message) {
